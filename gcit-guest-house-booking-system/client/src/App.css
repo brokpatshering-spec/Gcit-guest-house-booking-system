@@ -36,3 +36,326 @@
     transform: rotate(360deg);
   }
 }
+/* ==========================================================================
+  GCIT Guest House Booking System — Sign Up
+  Primary   #0F172A (deep navy)
+  Secondary #D4AF37 (gold)
+  Tertiary  #647488 (slate)
+  Neutral   #F8FAFC (off-white)
+  Headline font: Montserrat  |  Body font: Inter
+  ========================================================================== */
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap");
+
+
+:root {
+ --color-primary: #0f172a;
+ --color-primary-hover: #1c2b4a;
+ --color-secondary: #d4af37;
+ --color-secondary-dark: #b3901f;
+ --color-tertiary: #647488;
+ --color-neutral: #f8fafc;
+ --color-border: #e2e6ec;
+ --color-text: #0f172a;
+ --color-text-muted: #647488;
+ --font-headline: "Montserrat", sans-serif;
+ --font-body: "Inter", sans-serif;
+ --radius-md: 10px;
+ --radius-lg: 16px;
+}
+
+
+.signup-page {
+ min-height: 100vh;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ padding: 56px 20px;
+ background: var(--color-neutral);
+ font-family: var(--font-body);
+ box-sizing: border-box;
+}
+
+
+.signup-container {
+ width: 100%;
+ max-width: 420px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+
+/* Logo */
+.signup-logo {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 10px;
+ margin-bottom: 28px;
+}
+
+
+.signup-logo-badge {
+ width: 48px;
+ height: 48px;
+ border-radius: var(--radius-md);
+ background: var(--color-neutral);
+ border: 2px solid var(--color-primary);
+ color: var(--color-primary);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+
+.signup-logo-text {
+ font-family: var(--font-headline);
+ font-weight: 700;
+ font-size: 12px;
+ letter-spacing: 0.02em;
+ text-align: center;
+ color: var(--color-primary);
+ line-height: 1.4;
+}
+
+
+/* Heading */
+.signup-title {
+ font-family: var(--font-headline);
+ font-weight: 800;
+ font-size: 26px;
+ color: var(--color-text);
+ margin: 0 0 8px;
+ text-align: center;
+}
+
+
+.signup-subtitle {
+ font-family: var(--font-body);
+ font-size: 14px;
+ color: var(--color-text-muted);
+ text-align: center;
+ line-height: 1.5;
+ margin: 0 0 28px;
+ max-width: 360px;
+}
+
+
+/* Card */
+.signup-card {
+ width: 100%;
+ background: #ffffff;
+ border: 1px solid var(--color-border);
+ border-radius: var(--radius-lg);
+ padding: 28px;
+ box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+ box-sizing: border-box;
+}
+
+
+.signup-section-label {
+ font-family: var(--font-body);
+ font-size: 11px;
+ font-weight: 600;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ color: var(--color-tertiary);
+ border-left: 3px solid var(--color-secondary);
+ padding-left: 8px;
+ margin: 0 0 14px;
+}
+
+
+.signup-section-label--spaced {
+ margin-top: 24px;
+}
+
+
+/* Fields */
+.signup-field {
+ position: relative;
+ margin-bottom: 12px;
+}
+
+
+.signup-field input {
+ width: 100%;
+ font-family: var(--font-body);
+ font-size: 14px;
+ color: var(--color-text);
+ background: var(--color-neutral);
+ border: 1px solid var(--color-border);
+ border-radius: var(--radius-md);
+ padding: 13px 14px;
+ box-sizing: border-box;
+ outline: none;
+ transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+
+.signup-field input::placeholder {
+ color: #94a1b2;
+}
+
+
+.signup-field input:focus {
+ border-color: var(--color-primary);
+ box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+}
+
+
+.signup-eye-btn {
+ position: absolute;
+ top: 50%;
+ right: 12px;
+ transform: translateY(-50%);
+ background: none;
+ border: none;
+ padding: 4px;
+ color: var(--color-tertiary);
+ display: flex;
+ align-items: center;
+ cursor: pointer;
+}
+
+
+.signup-eye-btn:hover {
+ color: var(--color-primary);
+}
+
+
+/* Note box */
+.signup-note {
+ display: flex;
+ gap: 10px;
+ align-items: flex-start;
+ background: var(--color-neutral);
+ border: 1px solid var(--color-border);
+ border-radius: var(--radius-md);
+ padding: 12px 14px;
+ margin: 16px 0;
+}
+
+
+.signup-note-icon {
+ flex-shrink: 0;
+ color: var(--color-tertiary);
+ margin-top: 1px;
+}
+
+
+.signup-note span {
+ font-size: 12.5px;
+ line-height: 1.5;
+ color: var(--color-text-muted);
+}
+
+
+/* Checkbox */
+.signup-checkbox {
+ display: flex;
+ align-items: flex-start;
+ gap: 8px;
+ font-size: 13px;
+ color: var(--color-text-muted);
+ cursor: pointer;
+ margin-bottom: 20px;
+ line-height: 1.5;
+}
+
+
+.signup-checkbox input {
+ margin-top: 2px;
+ width: 16px;
+ height: 16px;
+ accent-color: var(--color-primary);
+ cursor: pointer;
+ flex-shrink: 0;
+}
+
+
+.signup-checkbox a {
+ color: var(--color-primary);
+ font-weight: 600;
+ text-decoration: none;
+}
+
+
+.signup-checkbox a:hover {
+ text-decoration: underline;
+}
+
+
+/* Submit button */
+.signup-submit {
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 8px;
+ font-family: var(--font-body);
+ font-weight: 600;
+ font-size: 14px;
+ color: #ffffff;
+ background: var(--color-primary);
+ border: none;
+ border-radius: var(--radius-md);
+ padding: 14px;
+ cursor: pointer;
+ transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+
+.signup-submit:hover:not(:disabled) {
+ background: var(--color-primary-hover);
+}
+
+
+.signup-submit:disabled {
+ opacity: 0.5;
+ cursor: not-allowed;
+}
+
+
+.signup-submit:focus-visible {
+ outline: 2px solid var(--color-secondary);
+ outline-offset: 2px;
+}
+
+
+/* Footer */
+.signup-footer {
+ margin-top: 24px;
+ font-size: 13px;
+ color: var(--color-text-muted);
+ text-align: center;
+}
+
+
+.signup-footer a {
+ color: var(--color-primary);
+ font-weight: 600;
+ text-decoration: none;
+}
+
+
+.signup-footer a:hover {
+ text-decoration: underline;
+}
+
+
+/* Responsive */
+@media (max-width: 480px) {
+ .signup-page {
+   padding: 32px 16px;
+ }
+ .signup-card {
+   padding: 20px;
+ }
+ .signup-title {
+   font-size: 22px;
+ }
+}

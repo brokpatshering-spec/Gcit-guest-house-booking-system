@@ -1,9 +1,17 @@
+
+import React from "react";
 import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SignUpPage from "./pages/SignUpPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   return (
     <div className="App">
+      <SignUpPage />
+     <ToastContainer position="top-center" autoClose={3000} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -23,3 +31,6 @@ function App() {
 }
 
 export default App;
+
+
+
