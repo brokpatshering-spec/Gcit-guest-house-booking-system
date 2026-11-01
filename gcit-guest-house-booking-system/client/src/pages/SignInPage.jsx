@@ -6,9 +6,9 @@ import TextInput from "../components/signup/TextInput";
 import PasswordInput from "../components/signup/PasswordInput";
 import SubmitButton from "../components/signup/SubmitButton";
 import { toast } from "react-toastify";
-import axios from "axios";
 
-const API_URL = `${process.env.REACT_APP_API_URL}/auth/login`;
+import api from "../services/api";
+
 
 export default function SignInPage() {
   const navigate = useNavigate(); // FIXED: this line was missing
@@ -43,7 +43,7 @@ export default function SignInPage() {
     setError("");
 
     try {
-      const response = await axios.post(API_URL, {
+      const response = await api.post("auth/login", {
         email: form.email,
         password: form.password,
       });
@@ -58,11 +58,33 @@ export default function SignInPage() {
       }
 
       toast.success("Login successful!");
+      //extract token, user object and fallback properties
+ const token = response.data.token || response.data.accessToken;
+ const user =
+ response.data.user || response.data.userData || response.data;
+ //extract role
+ const role =
+ user?.role ||
+ response.data?.role ||
+ (user?.isAdmin ? "admin" : "guest");
+ //save to localstorage
+ if (token) localStorage.setItem("token", token);
+ if (user) localStorage.setItem("user", JSON.stringify(user));
+ localStorage.setItem("role", role);
+
 
       setForm({
         email: "",
         password: "",
       });
+      //Redirect based on role
+ const normalizedRole = String(role).toLowerCase();
+ console.log("Detected role", normalizedRole);
+ if (normalizedRole === "admin") {
+ navigate("/admin", { replace: true });
+ } else {
+ navigate("/dashboard", { replace: true });
+ }
 
       navigate("/dashboard");
     } catch (err) {

@@ -41,7 +41,7 @@ exports.register = async (req, res) => {
       email,
       password: hashedPassword,
       phone,
-      role: "guest",
+      role: req.body.role || "guest",
     });
 
 
@@ -87,7 +87,7 @@ exports.login = async (req, res) => {
 
     // Generate a token and send it as a response to the client
     //console.log('JWT_SECRET:', process.env.JWT_SECRET);
-    let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+    let token = jwt.sign({ id: user.id,  email: user.email, role: user.role  }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
     res.json({
@@ -96,6 +96,7 @@ exports.login = async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
+        role: user.role,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
       },
